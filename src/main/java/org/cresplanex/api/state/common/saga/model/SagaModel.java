@@ -47,7 +47,7 @@ public abstract class SagaModel<
     protected Object createErrorAttributes(SagaState<?, Entity> state, BaseFailureReply<?> reply){
         return Map.of(
                 ACTION_CODE_ATTRIBUTE, state.getNextAction().name(),
-                DETAIL_ATTRIBUTE, reply.getData()
+                DETAIL_ATTRIBUTE, reply.getData() == null ? new int[0] : reply.getData().toString()
         );
     }
 
