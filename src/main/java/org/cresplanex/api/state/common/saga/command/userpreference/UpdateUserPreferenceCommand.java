@@ -16,6 +16,7 @@ public class UpdateUserPreferenceCommand {
     public static class Exec extends UserPreferenceSagaCommand {
         public static final String TYPE = PREFIX + "Exec";
 
+        private String operatorId;
         private String userPreferenceId;
         private String theme;
         private String language;

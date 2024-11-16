@@ -46,7 +46,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
 	api "build.buf.gen:labgroupware_common_grpc_java:1.68.1.1.20241115184551.2d5d517142f2"
-	api "build.buf.gen:labgroupware_state_grpc_java:1.68.1.1.20241115184834.531851acf5a6"
+	api "build.buf.gen:labgroupware_state_grpc_java:1.68.1.1.20241116060551.1ea2a8a8b4dc"
 	api 'org.cresplanex:core:1.0.0'
 
 	runtimeOnly 'org.postgresql:postgresql'

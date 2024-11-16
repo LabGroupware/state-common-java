@@ -25,5 +25,5 @@ public class TaskDto {
 
     private String startDateTime;
 
-    private String endDateTime;
+    private String dueDateTime;
 }
