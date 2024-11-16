@@ -1,17 +1,16 @@
-package org.cresplanex.api.state.common.saga.reply.userpreference;
+package org.cresplanex.api.state.common.saga.reply.plan;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.cresplanex.api.state.common.dto.userpreference.UserPreferenceDto;
-import org.cresplanex.api.state.common.saga.command.userpreference.CreateUserPreferenceCommand;
-import org.cresplanex.api.state.common.saga.command.userprofile.CreateUserProfileCommand;
+import org.cresplanex.api.state.common.dto.plan.TaskDto;
+import org.cresplanex.api.state.common.saga.command.plan.CreateTaskCommand;
 import org.cresplanex.api.state.common.saga.reply.BaseFailureReply;
 import org.cresplanex.api.state.common.saga.reply.BaseSuccessfullyReply;
 
-public class CreateUserPreferenceReply {
+public class CreateTaskReply {
 
-    private static final String EXEC_PREFIX = CreateUserPreferenceCommand.Exec.TYPE + ".Reply.";
+    private static final String EXEC_PREFIX = CreateTaskCommand.Exec.TYPE + ".Reply.";
 
     public static class Success extends BaseSuccessfullyReply<Success.Data> {
         public static final String TYPE = EXEC_PREFIX + "Success";
@@ -27,7 +26,7 @@ public class CreateUserPreferenceReply {
         @NoArgsConstructor
         @Getter
         public static class Data {
-            private UserPreferenceDto userPreference;
+            private TaskDto task;
         }
 
         @Override

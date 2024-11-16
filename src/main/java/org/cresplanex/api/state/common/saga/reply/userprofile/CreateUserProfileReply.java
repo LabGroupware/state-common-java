@@ -10,10 +10,10 @@ import org.cresplanex.api.state.common.saga.reply.BaseSuccessfullyReply;
 
 public class CreateUserProfileReply{
 
-    private static final String PREFIX = CreateUserProfileCommand.Exec.TYPE + ".Reply.";
+    private static final String EXEC_PREFIX = CreateUserProfileCommand.Exec.TYPE + ".Reply.";
 
     public static class Success extends BaseSuccessfullyReply<Success.Data> {
-        public static final String TYPE = PREFIX + "Success";
+        public static final String TYPE = EXEC_PREFIX + "Success";
 
         public Success(Data data, String code, String caption, String timestamp) {
             super(data, code, caption, timestamp);
@@ -36,7 +36,7 @@ public class CreateUserProfileReply{
     }
 
     public static class Failure extends BaseFailureReply<Object> {
-        public static final String TYPE = PREFIX + "Failure";
+        public static final String TYPE = EXEC_PREFIX + "Failure";
 
         public Failure(Object data, String code, String caption, String timestamp) {
             super(data, code, caption, timestamp);
