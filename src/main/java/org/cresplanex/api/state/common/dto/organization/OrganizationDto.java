@@ -23,5 +23,5 @@ public class OrganizationDto {
 
     private String plan;
 
-    private String site_url;
+    private String siteUrl;
 }
