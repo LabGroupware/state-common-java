@@ -15,5 +15,4 @@ public class UserProfileExistValidateCommand extends UserProfileSagaValidateComm
     public static final String TYPE = ServiceType.NOVA_USER_PROFILE + ".Saga.ValidateCommand.UserProfileExist";
 
     private List<String> userIds;
-    private boolean any;
 }
