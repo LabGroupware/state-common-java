@@ -42,7 +42,7 @@ public abstract class SagaModel<
     abstract protected String getSuccessfullyEventType();
 
     @Autowired
-    private DomainEventPublisher domainEventPublisher;
+    protected DomainEventPublisher eventPublisher;
 
     public static final String ACTION_CODE_ATTRIBUTE = "actionCode";
     public static final String DETAIL_ATTRIBUTE = "detail";
@@ -76,7 +76,7 @@ public abstract class SagaModel<
     }
 
     protected void handleFailureReply(State state, BaseFailureReply<?> reply) {
-        this.domainEventPublisher.publish(
+        this.eventPublisher.publish(
                 getDomainEventPublisher().getAggregateType(),
                 getAggregateId(state),
                 Collections.singletonList(
@@ -95,7 +95,7 @@ public abstract class SagaModel<
 
     protected <Data> void processedEventPublish(State state, BaseSuccessfullyReply<Data> reply) {
         Data data = reply.getData();
-        this.domainEventPublisher.publish(
+        this.eventPublisher.publish(
                 getDomainEventPublisher().getAggregateType(),
                 getAggregateId(state),
                 Collections.singletonList(
@@ -122,7 +122,7 @@ public abstract class SagaModel<
         String firstAction = actionNames.getFirst();
         List<String> nextActions = actionNames.subList(1, actionNames.size());
 
-        this.domainEventPublisher.publish(
+        this.eventPublisher.publish(
                 getDomainEventPublisher().getAggregateType(),
                 getAggregateId(data),
                 Collections.singletonList(
@@ -137,7 +137,7 @@ public abstract class SagaModel<
     }
 
     protected <Data> void successfullyEventPublish(State state, Data resultData) {
-        this.domainEventPublisher.publish(
+        this.eventPublisher.publish(
                 getDomainEventPublisher().getAggregateType(),
                 getAggregateId(state),
                 Collections.singletonList(new SuccessJobEvent(state.getJobId(), resultData)),
