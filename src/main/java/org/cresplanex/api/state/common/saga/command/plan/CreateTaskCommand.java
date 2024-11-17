@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.cresplanex.api.state.common.saga.type.PlanSagaType;
 
+import java.util.List;
+
 public class CreateTaskCommand {
 
     public static final String PREFIX = PlanSagaType.CREATE_TASK + ".Command.CreateTask.";
@@ -22,6 +24,11 @@ public class CreateTaskCommand {
         private String description;
         private String startDatetime;
         private String dueDatetime;
+        private List<FileObject> attachmentFileObjectIds;
+
+        public static class FileObject {
+            private String fileObjectId;
+        }
     }
 
     @AllArgsConstructor

@@ -3,7 +3,6 @@ package org.cresplanex.api.state.common.saga.command.team;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.cresplanex.api.state.common.dto.team.UserOnTeamDto;
 import org.cresplanex.api.state.common.saga.type.TeamSagaType;
 
 import java.util.List;
@@ -22,7 +21,11 @@ public class CreateTeamAndAddInitialTeamUserCommand {
         private String organizationId;
         private String name;
         private String description;
-        private List<UserOnTeamDto> users;
+        private List<User> users;
+
+        public static class User {
+            private String userId;
+        }
     }
 
     @AllArgsConstructor

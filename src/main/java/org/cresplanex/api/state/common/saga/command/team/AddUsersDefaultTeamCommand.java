@@ -3,7 +3,6 @@ package org.cresplanex.api.state.common.saga.command.team;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.cresplanex.api.state.common.dto.team.UserOnTeamDto;
 import org.cresplanex.api.state.common.saga.type.OrganizationSagaType;
 
 import java.util.List;
@@ -20,7 +19,11 @@ public class AddUsersDefaultTeamCommand {
 
         private String operatorId;
         private String organizationId;
-        private List<UserOnTeamDto> users;
+        private List<User> users;
+
+        public static class User {
+            private String userId;
+        }
     }
 
     @AllArgsConstructor
