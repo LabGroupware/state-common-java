@@ -7,6 +7,7 @@ import org.cresplanex.api.state.common.event.model.FailedJobEvent;
 import org.cresplanex.api.state.common.event.model.ProcessedJobEvent;
 import org.cresplanex.api.state.common.event.model.SuccessJobEvent;
 import org.cresplanex.api.state.common.event.publisher.AggregateDomainEventPublisher;
+import org.cresplanex.api.state.common.saga.local.exception.LocalException;
 import org.cresplanex.api.state.common.saga.reply.BaseFailureReply;
 import org.cresplanex.api.state.common.saga.reply.BaseSuccessfullyReply;
 import org.cresplanex.api.state.common.saga.state.SagaState;
@@ -50,7 +51,7 @@ public abstract class SagaModel<
     protected Object createErrorAttributes(SagaState<?, Entity> state, BaseFailureReply<?> reply){
         return Map.of(
                 ACTION_CODE_ATTRIBUTE, state.getNextAction().name(),
-                DETAIL_ATTRIBUTE, reply.getData() == null ? new int[0] : reply.getData().toString()
+                DETAIL_ATTRIBUTE, reply.getData() == null ? new int[0] : reply.getData()
         );
     }
 
@@ -88,6 +89,27 @@ public abstract class SagaModel<
                                 reply.getCaption(),
                                 reply.getTimestamp(),
                                 this.createErrorAttributes(state, reply)
+                        )
+                ),
+                getFailedEventType());
+    }
+
+    protected void failureLocalExceptionPublish(State state, LocalException exception) {
+        this.eventPublisher.publish(
+                getDomainEventPublisher().getAggregateType(),
+                getAggregateId(state),
+                Collections.singletonList(
+                        new FailedJobEvent(
+                                state.getJobId(),
+                                exception.getData(),
+                                state.getNextAction().name(),
+                                exception.getApplicationCode(),
+                                exception.getApplicationCaption(),
+                                LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME),
+                                Map.of(
+                                        ACTION_CODE_ATTRIBUTE, state.getNextAction().name(),
+                                        DETAIL_ATTRIBUTE, exception.getData() == null ? new int[0] : exception.getData()
+                                )
                         )
                 ),
                 getFailedEventType());
