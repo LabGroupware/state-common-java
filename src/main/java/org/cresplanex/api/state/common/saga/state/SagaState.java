@@ -8,7 +8,7 @@ import org.cresplanex.api.state.common.entity.BaseEntity;
 @Setter
 @Getter
 @NoArgsConstructor
-public abstract class SagaState<Action extends Enum<Action>, Entity extends BaseEntity> {
+public abstract class SagaState<Action extends Enum<Action>, Entity extends BaseEntity<?>> {
 
     private String jobId;
     private Action nextAction;

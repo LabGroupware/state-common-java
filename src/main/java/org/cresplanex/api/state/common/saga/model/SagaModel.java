@@ -1,6 +1,5 @@
 package org.cresplanex.api.state.common.saga.model;
 
-import lombok.extern.slf4j.Slf4j;
 import org.cresplanex.api.state.common.entity.BaseEntity;
 import org.cresplanex.api.state.common.event.EventDummyId;
 import org.cresplanex.api.state.common.event.model.BeginJobEvent;
@@ -14,6 +13,8 @@ import org.cresplanex.api.state.common.saga.state.SagaState;
 import org.cresplanex.core.events.common.DomainEvent;
 import org.cresplanex.core.events.publisher.DomainEventPublisher;
 import org.cresplanex.core.saga.simpledsl.SimpleSaga;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
@@ -24,11 +25,13 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class SagaModel<
-        Entity extends BaseEntity,
+        Entity extends BaseEntity<?>,
         Event extends DomainEvent,
         Action extends Enum<Action>,
         State extends SagaState<Action, Entity>
 > implements SimpleSaga<State>  {
+
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     abstract protected AggregateDomainEventPublisher<Entity, Event> getDomainEventPublisher();
     abstract protected Action[] getActions();
@@ -144,9 +147,11 @@ public abstract class SagaModel<
 
     @Override
     public void onSagaRolledBack(String sagaId, State data) {
+        log.info("Saga {} rolled back", sagaId);
     }
 
     @Override
     public void onSagaFailed(String sagaId, State data) {
+        log.info("Saga {} failed", sagaId);
     }
 }
