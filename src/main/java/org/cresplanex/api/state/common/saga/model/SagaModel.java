@@ -93,6 +93,25 @@ public abstract class SagaModel<
                 getFailedEventType());
     }
 
+    protected <Data> void localProcessedEventPublish(
+            State state, String code, String caption) {
+        this.eventPublisher.publish(
+                getDomainEventPublisher().getAggregateType(),
+                getAggregateId(state),
+                Collections.singletonList(
+                        new ProcessedJobEvent(
+                                state.getJobId(),
+                                new int[0],
+                                state.getNextAction().name(),
+                                code,
+                                caption,
+                                LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)
+                        )
+                ),
+                getProcessedEventType());
+        state.setNextAction(getNext(state.getNextAction()));
+    }
+
     protected <Data> void processedEventPublish(State state, BaseSuccessfullyReply<Data> reply) {
         Data data = reply.getData();
         this.eventPublisher.publish(
