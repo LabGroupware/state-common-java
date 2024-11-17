@@ -19,7 +19,7 @@ import lombok.ToString;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @Getter @Setter @ToString
-public abstract class BaseEntity implements Cloneable {
+public abstract class BaseEntity<T extends BaseEntity<T>> implements Cloneable {
 
     abstract public void setId(String id);
     abstract public String getId();
@@ -45,9 +45,10 @@ public abstract class BaseEntity implements Cloneable {
     private String updatedBy;
 
     @Override
-    public BaseEntity clone() {
+    @SuppressWarnings("unchecked")
+    public T clone() {
         try {
-            BaseEntity cloned = (BaseEntity) super.clone();
+            T cloned = (T) super.clone();
             cloned.setId(null);
             cloned.setVersion(null);
             cloned.setCreatedBy(null);
@@ -56,7 +57,7 @@ public abstract class BaseEntity implements Cloneable {
             cloned.setUpdatedAt(null);
             return cloned;
         } catch (CloneNotSupportedException e) {
-            return null;
+            throw new RuntimeException(e);
         }
     }
 }
