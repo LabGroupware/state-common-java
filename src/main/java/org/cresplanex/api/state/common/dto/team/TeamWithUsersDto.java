@@ -13,6 +13,12 @@ import java.util.List;
 @Builder
 public class TeamWithUsersDto {
 
+    public static TeamWithUsersDto empty() {
+        TeamDto team = TeamDto.empty();
+        List<UserOnTeamDto> users = List.of();
+        return new TeamWithUsersDto(team, users);
+    }
+
     private TeamDto team;
 
     private List<UserOnTeamDto> users;

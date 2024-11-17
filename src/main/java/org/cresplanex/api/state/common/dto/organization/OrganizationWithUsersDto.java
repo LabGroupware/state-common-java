@@ -13,6 +13,12 @@ import java.util.List;
 @Builder
 public class OrganizationWithUsersDto {
 
+    public static OrganizationWithUsersDto empty() {
+        OrganizationDto organization = OrganizationDto.empty();
+        List<UserOnOrganizationDto> users = List.of();
+        return new OrganizationWithUsersDto(organization, users);
+    }
+
     private OrganizationDto organization;
 
     private List<UserOnOrganizationDto> users;

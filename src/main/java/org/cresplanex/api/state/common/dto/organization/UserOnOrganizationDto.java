@@ -11,6 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class UserOnOrganizationDto {
 
+    public static UserOnOrganizationDto empty() {
+        return new UserOnOrganizationDto();
+    }
+
     private String userOrganizationId;
 
     private String userId;

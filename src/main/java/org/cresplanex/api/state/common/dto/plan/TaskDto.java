@@ -11,6 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class TaskDto {
 
+    public static TaskDto empty() {
+        return new TaskDto();
+    }
+
     private String taskId;
 
     private String teamId;

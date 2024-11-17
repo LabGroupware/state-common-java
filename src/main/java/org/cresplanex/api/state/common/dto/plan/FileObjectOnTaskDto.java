@@ -11,6 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class FileObjectOnTaskDto {
 
+    public static FileObjectOnTaskDto empty() {
+        return new FileObjectOnTaskDto();
+    }
+
     private String taskAttachmentId;
 
     private String fileObjectId;

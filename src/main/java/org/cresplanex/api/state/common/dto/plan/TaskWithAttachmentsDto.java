@@ -13,6 +13,12 @@ import java.util.List;
 @Builder
 public class TaskWithAttachmentsDto {
 
+    public static TaskWithAttachmentsDto empty() {
+        TaskDto task = TaskDto.empty();
+        List<FileObjectOnTaskDto> attachments = List.of();
+        return new TaskWithAttachmentsDto(task, attachments);
+    }
+
     private TaskDto task;
 
     private List<FileObjectOnTaskDto> attachments;

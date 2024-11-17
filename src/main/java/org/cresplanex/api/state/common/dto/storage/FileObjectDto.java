@@ -11,6 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class FileObjectDto {
 
+    public static FileObjectDto empty() {
+        return new FileObjectDto();
+    }
+
     private String fileObjectId;
 
     private String bucketId;

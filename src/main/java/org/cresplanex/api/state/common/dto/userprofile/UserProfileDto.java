@@ -13,6 +13,10 @@ import java.time.LocalDate;
 @Builder
 public class UserProfileDto {
 
+    public static UserProfileDto empty() {
+        return new UserProfileDto();
+    }
+
     private String userProfileId;
 
     private String userId;

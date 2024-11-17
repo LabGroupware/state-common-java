@@ -11,6 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class UserPreferenceDto {
 
+    public static UserPreferenceDto empty() {
+        return new UserPreferenceDto();
+    }
+
     private String userPreferenceId;
 
     private String userId;

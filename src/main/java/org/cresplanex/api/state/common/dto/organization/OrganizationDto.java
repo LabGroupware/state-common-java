@@ -11,6 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class OrganizationDto {
 
+    public static OrganizationDto empty() {
+        return new OrganizationDto();
+    }
+
     private String organizationId;
 
     private String ownerId;

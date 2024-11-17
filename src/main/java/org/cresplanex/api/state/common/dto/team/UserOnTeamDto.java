@@ -11,6 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class UserOnTeamDto {
 
+    public static UserOnTeamDto empty() {
+        return new UserOnTeamDto();
+    }
+
     private String userTeamId;
 
     private String userId;

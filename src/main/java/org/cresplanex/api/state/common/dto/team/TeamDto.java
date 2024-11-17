@@ -13,6 +13,10 @@ import java.util.List;
 @Builder
 public class TeamDto {
 
+    public static TeamDto empty() {
+        return new TeamDto();
+    }
+
     private String teamId;
 
     private String organizationId;
