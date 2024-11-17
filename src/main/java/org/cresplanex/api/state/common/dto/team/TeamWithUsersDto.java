@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -15,7 +16,7 @@ public class TeamWithUsersDto {
 
     public static TeamWithUsersDto empty() {
         TeamDto team = TeamDto.empty();
-        List<UserOnTeamDto> users = List.of();
+        List<UserOnTeamDto> users = new ArrayList<>();
         return new TeamWithUsersDto(team, users);
     }
 

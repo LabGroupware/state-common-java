@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -15,7 +16,7 @@ public class TaskWithAttachmentsDto {
 
     public static TaskWithAttachmentsDto empty() {
         TaskDto task = TaskDto.empty();
-        List<FileObjectOnTaskDto> attachments = List.of();
+        List<FileObjectOnTaskDto> attachments = new ArrayList<>();
         return new TaskWithAttachmentsDto(task, attachments);
     }
 
