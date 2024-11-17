@@ -115,7 +115,7 @@ public abstract class SagaModel<
                 getFailedEventType());
     }
 
-    protected <Data> void validateProcessedEventPublish(
+    protected <Data> void localProcessedEventPublish(
             State state, String code, String caption) {
         this.eventPublisher.publish(
                 getDomainEventPublisher().getAggregateType(),
@@ -132,24 +132,6 @@ public abstract class SagaModel<
                 ),
                 getProcessedEventType());
         state.setNextAction(getNext(state.getNextAction()));
-    }
-
-    protected void validateFailedEventPublish(State state, LocalException exception) {
-        this.eventPublisher.publish(
-                getDomainEventPublisher().getAggregateType(),
-                getAggregateId(state),
-                Collections.singletonList(
-                        new FailedJobEvent(
-                                state.getJobId(),
-                                reply.getData(),
-                                state.getNextAction().name(),
-                                reply.getCode(),
-                                reply.getCaption(),
-                                reply.getTimestamp(),
-                                this.createErrorAttributes(state, reply)
-                        )
-                ),
-                getFailedEventType());
     }
 
     protected <Data> void processedEventPublish(State state, BaseSuccessfullyReply<Data> reply) {

@@ -13,20 +13,14 @@ public class UserProfileExistValidateReply {
 
     private static final String PREFIX = UserProfileExistValidateCommand.TYPE + ".Reply.";
 
-    public static class Success extends BaseSuccessfullyReply<Success.Data> {
+    public static class Success extends BaseSuccessfullyReply<Object> {
         public static final String TYPE = PREFIX + "Success";
 
-        public Success(Data data, String code, String caption, String timestamp) {
+        public Success(Object data, String code, String caption, String timestamp) {
             super(data, code, caption, timestamp);
         }
 
         public Success() {
-        }
-
-        @AllArgsConstructor
-        @NoArgsConstructor
-        @Getter
-        public static class Data {
         }
 
         @Override

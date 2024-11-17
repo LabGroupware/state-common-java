@@ -13,20 +13,14 @@ public class OrganizationUserExistValidateReply {
 
     private static final String PREFIX = OrganizationUserExistValidateCommand.TYPE + ".Reply.";
 
-    public static class Success extends BaseSuccessfullyReply<OrganizationUserExistValidateReply.Success.Data> {
+    public static class Success extends BaseSuccessfullyReply<Object> {
         public static final String TYPE = PREFIX + "Success";
 
-        public Success(OrganizationUserExistValidateReply.Success.Data data, String code, String caption, String timestamp) {
+        public Success(Object data, String code, String caption, String timestamp) {
             super(data, code, caption, timestamp);
         }
 
         public Success() {
-        }
-
-        @AllArgsConstructor
-        @NoArgsConstructor
-        @Getter
-        public static class Data {
         }
 
         @Override
@@ -35,10 +29,10 @@ public class OrganizationUserExistValidateReply {
         }
     }
 
-    public static class Failure extends BaseFailureReply<OrganizationUserExistValidateReply.Failure.Data> {
+    public static class Failure extends BaseFailureReply<Failure.Data> {
         public static final String TYPE = PREFIX + "Failure";
 
-        public Failure(OrganizationUserExistValidateReply.Failure.Data data, String code, String caption, String timestamp) {
+        public Failure(Data data, String code, String caption, String timestamp) {
             super(data, code, caption, timestamp);
         }
 
