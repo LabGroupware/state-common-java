@@ -16,5 +16,4 @@ public class OrganizationUserExistValidateCommand extends OrganizationSagaValida
 
     private String organizationId;
     private List<String> userIds;
-    private boolean any;
 }

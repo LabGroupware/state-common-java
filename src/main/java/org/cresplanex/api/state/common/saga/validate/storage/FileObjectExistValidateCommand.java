@@ -15,5 +15,4 @@ public class FileObjectExistValidateCommand extends StorageSagaValidateCommand {
     public static final String TYPE = ServiceType.NOVA_STORAGE + ".Saga.ValidateCommand.FileObjectExist";
 
     private List<String> fileObjectIds;
-    private boolean any;
 }

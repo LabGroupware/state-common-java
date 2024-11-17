@@ -15,5 +15,4 @@ public class TeamExistValidateCommand extends TeamSagaValidateCommand {
     public static final String TYPE = ServiceType.NOVA_TEAM + ".Saga.ValidateCommand.TeamExist";
 
     private List<String> teamIds;
-    private boolean any;
 }
