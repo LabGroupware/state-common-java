@@ -23,6 +23,9 @@ public class CreateTeamAndAddInitialTeamUserCommand {
         private String description;
         private List<User> users;
 
+        @AllArgsConstructor
+        @NoArgsConstructor
+        @Getter
         public static class User {
             private String userId;
         }

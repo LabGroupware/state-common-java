@@ -21,6 +21,9 @@ public class AddUsersOrganizationCommand {
         private String organizationId;
         private List<User> users;
 
+        @AllArgsConstructor
+        @NoArgsConstructor
+        @Getter
         public static class User {
             private String userId;
         }

@@ -21,6 +21,9 @@ public class AddUsersDefaultTeamCommand {
         private String organizationId;
         private List<User> users;
 
+        @AllArgsConstructor
+        @NoArgsConstructor
+        @Getter
         public static class User {
             private String userId;
         }

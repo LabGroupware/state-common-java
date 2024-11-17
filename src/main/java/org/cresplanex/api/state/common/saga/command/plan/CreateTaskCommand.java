@@ -26,6 +26,9 @@ public class CreateTaskCommand {
         private String dueDatetime;
         private List<FileObject> attachmentFileObjectIds;
 
+        @AllArgsConstructor
+        @NoArgsConstructor
+        @Getter
         public static class FileObject {
             private String fileObjectId;
         }
