@@ -19,8 +19,7 @@ public class CreateDefaultTeamAndAddInitialDefaultTeamUserCommand {
 
         private String operatorId;
         private String organizationId;
-        private String name;
-        private String description;
+        private String organizationName;
         private List<User> users;
 
         @AllArgsConstructor
