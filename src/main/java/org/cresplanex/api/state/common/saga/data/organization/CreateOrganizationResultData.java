@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.cresplanex.api.state.common.dto.organization.OrganizationDto;
+import org.cresplanex.api.state.common.dto.organization.OrganizationWithUsersDto;
 import org.cresplanex.api.state.common.dto.organization.UserOnOrganizationDto;
 import org.cresplanex.api.state.common.dto.team.TeamDto;
 import org.cresplanex.api.state.common.dto.userpreference.UserPreferenceDto;
@@ -15,7 +16,6 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class CreateOrganizationResultData {
-    private OrganizationDto organization;
+    private OrganizationWithUsersDto organization;
     private TeamDto defaultTeam;
-    private List<UserOnOrganizationDto> users;
 }
