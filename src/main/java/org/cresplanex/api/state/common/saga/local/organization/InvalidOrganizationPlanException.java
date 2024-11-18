@@ -24,10 +24,10 @@ public class InvalidOrganizationPlanException extends LocalException {
     @Getter
     public static class Data {
         private String expectedFailure = "INVALID_PLAN";
-        private List<String> plansIds;
+        private List<String> plans;
 
-        public Data(List<String> plansIds) {
-            this.plansIds = plansIds;
+        public Data(List<String> plans) {
+            this.plans = plans;
         }
     }
 }

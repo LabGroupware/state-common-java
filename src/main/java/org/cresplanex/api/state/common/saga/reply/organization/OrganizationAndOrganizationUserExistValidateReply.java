@@ -57,10 +57,10 @@ public class OrganizationAndOrganizationUserExistValidateReply {
         @Getter
         public static class OrganizationNotFound {
             private String expectedFailure = "ORGANIZATION_NOT_FOUND";
-            private String organizationId;
+            private List<String> organizationIds;
 
-            public OrganizationNotFound(String organizationId) {
-                this.organizationId = organizationId;
+            public OrganizationNotFound(List<String> organizationIds) {
+                this.organizationIds = organizationIds;
             }
         }
 
