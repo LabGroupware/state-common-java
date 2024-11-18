@@ -6,14 +6,16 @@ import lombok.NoArgsConstructor;
 import org.cresplanex.api.state.common.constants.OrganizationServiceApplicationCode;
 import org.cresplanex.api.state.common.saga.local.LocalException;
 
+import java.util.List;
+
 public class InvalidOrganizationPlanException extends LocalException {
 
-    public InvalidOrganizationPlanException(String plan) {
+    public InvalidOrganizationPlanException(List<String> plans) {
         super(
                 OrganizationServiceApplicationCode.INVALID_PLAN,
-                "Invalid organization plan: " + plan,
-                new Data(plan),
-                "Invalid organization plan: " + plan
+                "Invalid organization plan: " + plans.stream().reduce("", (a, b) -> a + ", " + b),
+                new Data(plans),
+                "Invalid organization plan: " + plans.stream().reduce("", (a, b) -> a + ", " + b)
         );
     }
 
@@ -21,6 +23,11 @@ public class InvalidOrganizationPlanException extends LocalException {
     @NoArgsConstructor
     @Getter
     public static class Data {
-        private String plan;
+        private String expectedFailure = "INVALID_PLAN";
+        private List<String> plansIds;
+
+        public Data(List<String> plansIds) {
+            this.plansIds = plansIds;
+        }
     }
 }

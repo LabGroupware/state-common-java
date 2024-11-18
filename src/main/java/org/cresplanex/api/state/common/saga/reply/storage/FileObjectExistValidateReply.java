@@ -29,10 +29,10 @@ public class FileObjectExistValidateReply {
         }
     }
 
-    public static class Failure extends BaseFailureReply<Failure.Data> {
+    public static class Failure extends BaseFailureReply<Object> {
         public static final String TYPE = PREFIX + "Failure";
 
-        public Failure(Data data, String code, String caption, String timestamp) {
+        public Failure(Object data, String code, String caption, String timestamp) {
             super(data, code, caption, timestamp);
         }
 
@@ -42,8 +42,13 @@ public class FileObjectExistValidateReply {
         @AllArgsConstructor
         @NoArgsConstructor
         @Getter
-        public static class Data {
+        public static class FileObjectNotFound {
+            private String expectedFailure = "FILE_OBJECT_NOT_FOUND";
             private List<String> fileObjectIds;
+
+            public FileObjectNotFound(List<String> fileObjectIds) {
+                this.fileObjectIds = fileObjectIds;
+            }
         }
 
         @Override

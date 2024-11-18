@@ -10,9 +10,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class UserProfileExistValidateCommand extends UserProfileSagaValidateCommand {
+public class UserExistValidateCommand extends UserProfileSagaValidateCommand {
 
-    public static final String TYPE = ServiceType.NOVA_USER_PROFILE + ".Saga.ValidateCommand.UserProfileExist";
+    public static final String TYPE = ServiceType.NOVA_USER_PROFILE + ".Saga.ValidateCommand.UserExist";
 
     private List<String> userIds;
 }

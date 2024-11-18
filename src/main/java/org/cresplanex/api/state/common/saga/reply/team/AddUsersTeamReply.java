@@ -49,6 +49,18 @@ public class AddUsersTeamReply {
         public Failure() {
         }
 
+        @AllArgsConstructor
+        @NoArgsConstructor
+        @Getter
+        public static class AlreadyAddedTeamUser {
+            private String expectedFailure = "ALREADY_ADDED_TEAM_USER";
+            private List<String> userIds;
+
+            public AlreadyAddedTeamUser(List<String> userIds) {
+                this.userIds = userIds;
+            }
+        }
+
         @Override
         public String getType() {
             return TYPE;

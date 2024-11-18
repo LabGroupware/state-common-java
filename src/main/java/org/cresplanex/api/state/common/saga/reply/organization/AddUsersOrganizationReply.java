@@ -48,6 +48,18 @@ public class AddUsersOrganizationReply {
         public Failure() {
         }
 
+        @AllArgsConstructor
+        @NoArgsConstructor
+        @Getter
+        public static class AlreadyAddedOrganizationUser {
+            private String expectedFailure = "ALREADY_ADDED_ORGANIZATION_USER";
+            private List<String> userIds;
+
+            public AlreadyAddedOrganizationUser(List<String> userIds) {
+                this.userIds = userIds;
+            }
+        }
+
         @Override
         public String getType() {
             return TYPE;

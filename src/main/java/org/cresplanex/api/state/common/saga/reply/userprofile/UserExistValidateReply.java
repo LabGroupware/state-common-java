@@ -1,17 +1,17 @@
-package org.cresplanex.api.state.common.saga.reply.organization;
+package org.cresplanex.api.state.common.saga.reply.userprofile;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.cresplanex.api.state.common.saga.reply.BaseFailureReply;
 import org.cresplanex.api.state.common.saga.reply.BaseSuccessfullyReply;
-import org.cresplanex.api.state.common.saga.validate.organization.OrganizationUserExistValidateCommand;
+import org.cresplanex.api.state.common.saga.validate.userprofile.UserExistValidateCommand;
 
 import java.util.List;
 
-public class OrganizationUserExistValidateReply {
+public class UserExistValidateReply {
 
-    private static final String PREFIX = OrganizationUserExistValidateCommand.TYPE + ".Reply.";
+    private static final String PREFIX = UserExistValidateCommand.TYPE + ".Reply.";
 
     public static class Success extends BaseSuccessfullyReply<Object> {
         public static final String TYPE = PREFIX + "Success";
@@ -29,10 +29,10 @@ public class OrganizationUserExistValidateReply {
         }
     }
 
-    public static class Failure extends BaseFailureReply<Failure.Data> {
+    public static class Failure extends BaseFailureReply<Object> {
         public static final String TYPE = PREFIX + "Failure";
 
-        public Failure(Data data, String code, String caption, String timestamp) {
+        public Failure(Object data, String code, String caption, String timestamp) {
             super(data, code, caption, timestamp);
         }
 
@@ -42,8 +42,13 @@ public class OrganizationUserExistValidateReply {
         @AllArgsConstructor
         @NoArgsConstructor
         @Getter
-        public static class Data {
+        public static class UserNotFound {
+            private String expectedFailure = "USER_NOT_FOUND";
             private List<String> userIds;
+
+            public UserNotFound(List<String> userIds) {
+                this.userIds = userIds;
+            }
         }
 
         @Override

@@ -1,17 +1,18 @@
-package org.cresplanex.api.state.common.saga.reply.team;
+package org.cresplanex.api.state.common.saga.reply.organization;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.cresplanex.api.state.common.saga.reply.BaseFailureReply;
 import org.cresplanex.api.state.common.saga.reply.BaseSuccessfullyReply;
-import org.cresplanex.api.state.common.saga.validate.team.TeamExistValidateCommand;
+import org.cresplanex.api.state.common.saga.validate.organization.OrganizationAndOrganizationUserExistValidateCommand;
 
 import java.util.List;
 
-public class TeamExistValidateReply {
+public class OrganizationAndOrganizationUserExistValidateReply {
 
-    private static final String PREFIX = TeamExistValidateCommand.TYPE + ".Reply.";
+    private static final String PREFIX = OrganizationAndOrganizationUserExistValidateCommand.TYPE + ".Reply.";
 
     public static class Success extends BaseSuccessfullyReply<Object> {
         public static final String TYPE = PREFIX + "Success";
@@ -42,12 +43,24 @@ public class TeamExistValidateReply {
         @AllArgsConstructor
         @NoArgsConstructor
         @Getter
-        public static class TeamNotFound {
-            private String expectedFailure = "TEAM_NOT_FOUND";
-            private List<String> teamIds;
+        public static class OrganizationUserNotFound {
+            private String expectedFailure = "ORGANIZATION_USER_NOT_FOUND";
+            private List<String> userIds;
 
-            public TeamNotFound(List<String> teamIds) {
-                this.teamIds = teamIds;
+            public OrganizationUserNotFound(List<String> userIds) {
+                this.userIds = userIds;
+            }
+        }
+
+        @AllArgsConstructor
+        @NoArgsConstructor
+        @Getter
+        public static class OrganizationNotFound {
+            private String expectedFailure = "ORGANIZATION_NOT_FOUND";
+            private String organizationId;
+
+            public OrganizationNotFound(String organizationId) {
+                this.organizationId = organizationId;
             }
         }
 
