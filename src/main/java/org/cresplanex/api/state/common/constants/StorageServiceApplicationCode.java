@@ -8,4 +8,5 @@ public class StorageServiceApplicationCode {
     public static final String DUPLICATE = ServicePrefix.STORAGE + "1002";
     public static final String FILE_OBJECT_NOT_FOUND = ServicePrefix.STORAGE + "1003";
     public static final String FILE_OBJECT_DUPLICATE = ServicePrefix.STORAGE + "1004";
+    public static final String ALREADY_EXIST_FILE_OBJECT_PATH_IN_BUCKET = ServicePrefix.STORAGE + "1005";
 }

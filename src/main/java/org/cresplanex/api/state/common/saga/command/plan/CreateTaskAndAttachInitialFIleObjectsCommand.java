@@ -7,9 +7,9 @@ import org.cresplanex.api.state.common.saga.type.PlanSagaType;
 
 import java.util.List;
 
-public class CreateTaskCommand {
+public class CreateTaskAndAttachInitialFIleObjectsCommand {
 
-    public static final String PREFIX = PlanSagaType.CREATE_TASK + ".Command.CreateTask.";
+    public static final String PREFIX = PlanSagaType.CREATE_TASK + ".Command.CreateTaskAndAttachInitialFIleObjects.";
 
     @AllArgsConstructor
     @NoArgsConstructor
