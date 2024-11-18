@@ -7,7 +7,7 @@ import org.cresplanex.api.state.common.event.model.FailedJobEvent;
 import org.cresplanex.api.state.common.event.model.ProcessedJobEvent;
 import org.cresplanex.api.state.common.event.model.SuccessJobEvent;
 import org.cresplanex.api.state.common.event.publisher.AggregateDomainEventPublisher;
-import org.cresplanex.api.state.common.saga.local.exception.LocalException;
+import org.cresplanex.api.state.common.saga.local.LocalException;
 import org.cresplanex.api.state.common.saga.reply.BaseFailureReply;
 import org.cresplanex.api.state.common.saga.reply.BaseSuccessfullyReply;
 import org.cresplanex.api.state.common.saga.state.SagaState;

@@ -1,4 +1,4 @@
-package org.cresplanex.api.state.common.saga.local.exception;
+package org.cresplanex.api.state.common.saga.local;
 
 import lombok.Getter;
 

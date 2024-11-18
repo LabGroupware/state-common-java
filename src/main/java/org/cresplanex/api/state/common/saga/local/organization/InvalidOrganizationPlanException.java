@@ -1,10 +1,10 @@
-package org.cresplanex.api.state.common.saga.local.exception.organization;
+package org.cresplanex.api.state.common.saga.local.organization;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.cresplanex.api.state.common.constants.OrganizationServiceApplicationCode;
-import org.cresplanex.api.state.common.saga.local.exception.LocalException;
+import org.cresplanex.api.state.common.saga.local.LocalException;
 
 public class InvalidOrganizationPlanException extends LocalException {
 
