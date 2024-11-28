@@ -11,13 +11,14 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobBegan implements JobDomainEvent, BaseEvent {
+public class JobProcessed implements JobDomainEvent, BaseEvent {
     public static final String TYPE = ServiceType.NOVA_JOB
-            + ".Event.Job.Began";
+            + ".Event.Job.Processed";
 
     private String jobId;
     private String jobEventType;
     private String pendingAction;
+    private List<Object> completedActions;
     private List<String> scheduledActions;
     private String timestamp;
 
