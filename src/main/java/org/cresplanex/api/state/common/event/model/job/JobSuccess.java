@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.cresplanex.api.state.common.constants.ServiceType;
+import org.cresplanex.api.state.common.dto.JobDto;
 import org.cresplanex.api.state.common.event.model.BaseEvent;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class JobSuccess implements JobDomainEvent, BaseEvent {
 
     private String jobId;
     private String jobEventType;
-    private List<Object> completedActions;
+    List<JobDto.JobActionDto> completedActions;
     private Object data;
     private String timestamp;
 
