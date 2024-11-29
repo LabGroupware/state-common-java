@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UserPreferenceUpdated {
 
-    private static final String PREFIX = ServiceType.NOVA_USER_PREFERENCE + ".Event.Organization.UpdateJob.";
+    private static final String PREFIX = ServiceType.NOVA_USER_PREFERENCE + ".Event.UserPreference.UpdateJob.";
 
     public static class BeginJobDomainEvent extends BeginJobEvent implements UserPreferenceDomainEvent, BaseEvent {
         public static final String TYPE = PREFIX + "Begin";
