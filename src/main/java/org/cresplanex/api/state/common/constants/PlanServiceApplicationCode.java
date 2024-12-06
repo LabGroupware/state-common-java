@@ -13,4 +13,5 @@ public class PlanServiceApplicationCode {
     public static final String TASK_START_TIME_MUST_BE_EARLIER_DUE_TIME = ServicePrefix.PLAN + "1007";
     public static final String TASK_INVALID_START_TIME = ServicePrefix.PLAN + "1008";
     public static final String TASK_INVALID_DUE_TIME = ServicePrefix.PLAN + "1009";
+    public static final String WILL_ADDED_TASK_ATTACHMENTS_DUPLICATED = ServicePrefix.PLAN + "1010";
 }

@@ -11,4 +11,6 @@ public class OrganizationServiceApplicationCode {
     public static final String INVALID_PLAN = ServicePrefix.ORGANIZATION + "1005";
     public static final String ALREADY_EXIST_USER = ServicePrefix.ORGANIZATION + "1006";
     public static final String NOT_EXIST_USER = ServicePrefix.ORGANIZATION + "1007";
+    public static final String WILL_ADDED_USER_DUPLICATED = ServicePrefix.ORGANIZATION + "1008";
+    public static final String NOT_ALLOWED_USERS_CONTAIN_OWNER = ServicePrefix.ORGANIZATION + "1009";
 }
