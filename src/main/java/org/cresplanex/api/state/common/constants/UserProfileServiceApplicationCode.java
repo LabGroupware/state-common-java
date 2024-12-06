@@ -6,4 +6,5 @@ public class UserProfileServiceApplicationCode {
     public static final String INTERNAL_SERVER_ERROR = ServicePrefix.USER_PROFILE + "1000";
     public static final String NOT_FOUND_USER = ServicePrefix.USER_PROFILE + "1001";
     public static final String NOT_FOUND_USER_PROFILE = ServicePrefix.USER_PROFILE + "1002";
+    public static final String DUPLICATE_USER = ServicePrefix.USER_PROFILE + "1003";
 }

@@ -1,12 +1,16 @@
 package org.cresplanex.api.state.common.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class JobDto {
     private String jobId;
     private boolean initialized;
@@ -26,6 +30,8 @@ public class JobDto {
 
     @Data
     @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class JobActionDto {
         private String actionCode;
         private boolean success;

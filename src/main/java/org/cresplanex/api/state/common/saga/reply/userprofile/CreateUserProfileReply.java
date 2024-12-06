@@ -8,6 +8,8 @@ import org.cresplanex.api.state.common.saga.command.userprofile.CreateUserProfil
 import org.cresplanex.api.state.common.saga.reply.BaseFailureReply;
 import org.cresplanex.api.state.common.saga.reply.BaseSuccessfullyReply;
 
+import java.util.List;
+
 public class CreateUserProfileReply{
 
     private static final String EXEC_PREFIX = CreateUserProfileCommand.Exec.TYPE + ".Reply.";
@@ -43,6 +45,18 @@ public class CreateUserProfileReply{
         }
 
         public Failure() {
+        }
+
+        @AllArgsConstructor
+        @NoArgsConstructor
+        @Getter
+        public static class UserDuplicated {
+            private String expectedFailure = "USER_DUPLICATED";
+            private List<String> userIds;
+
+            public UserDuplicated(List<String> userIds) {
+                this.userIds = userIds;
+            }
         }
 
         @Override
