@@ -21,6 +21,7 @@ public class JobFailed implements JobDomainEvent, BaseEvent {
     List<JobDto.JobActionDto> completedActions;
     private Object errorAttributes;
     private String timestamp;
+    private String startedAt;
 
     public String getType() {
         return TYPE;
